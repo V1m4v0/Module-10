@@ -12,7 +12,7 @@ class Bank:
             amount = random.randint(50, 500)
             self.balance += amount
             print(f'Пополнение: {amount}. Баланс: {self.balance}\n')
-            if self.balance >= 500 and self.lock.locked():
+            if self.balance >= 500:
                 self.lock.release()
             time.sleep(0.001)
 
