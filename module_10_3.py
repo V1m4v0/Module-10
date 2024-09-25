@@ -10,10 +10,10 @@ class Bank:
     def deposit(self):
         for i in range(100):
             amount = random.randint(50, 500)
+            if self.balance >= 500 and self.lock.locked():
+                self.lock.release()
             self.balance += amount
             print(f'Пополнение: {amount}. Баланс: {self.balance}\n')
-            if self.balance >= 500:
-                self.lock.release()
             time.sleep(0.001)
 
     def take(self):
